@@ -5,8 +5,8 @@ namespace Tests\Feature;
 use App\Post;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ViewABlogPostTest extends TestCase
 {
@@ -16,10 +16,7 @@ class ViewABlogPostTest extends TestCase
     {
         // Arrangement
         // create a blog post
-        $post = Post::create([
-            'title' => 'A simple title',
-            'body' => 'A simple body'
-        ]);
+        $post = factory(Post::class)->create();
 
         // Action
         // visition a route
