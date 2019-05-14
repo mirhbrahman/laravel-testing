@@ -17,4 +17,17 @@ class PostsController extends Controller
     {
     	return view('posts')->withPosts(Post::all());
     }
+
+    public function storePost(Request $request)
+    {
+    	$this->validate($request, [
+    		'title' => 'required',
+    		'body' => 'required'
+    	]);
+
+    	$post = Post::create([
+    		'title' => $request->title,
+    		'body' => $request->body
+    	]);
+    }
 }
